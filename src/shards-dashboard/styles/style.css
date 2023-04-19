@@ -1,0 +1,52 @@
+.main-sidebar .nav .nav-item .nav-link.active, .main-sidebar .nav .nav-item .nav-link:hover, .main-sidebar .nav .nav-item.active, .main-sidebar .nav .nav-item:hover{
+    color: red !important;
+    box-shadow: none !important;
+    background-color: rgb(255, 230, 230) !important;
+}
+
+.main-sidebar .nav .nav-item .nav-link.active i, .main-sidebar .nav .nav-item .nav-link:hover i, .main-sidebar .nav .nav-item.active i, .main-sidebar .nav .nav-item:hover i{
+    color: red !important;
+}
+.cart-wrapper{
+    padding: 10px;
+    background-color: black;
+    border-radius: 10px;
+
+}
+.gap-10{
+    gap: 12px;
+}
+.cart-icon{
+    color: white;
+    margin-right: 9px;
+}
+
+.MuiTab-root{
+    text-transform: none !important;
+}
+.MuiTab-root:focus{
+    border: none !important;
+    outline: none !important;
+}
+.info-wrapp{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+.info-card{
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+}
+.contact-count{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    background-color: rgb(252, 203, 203);
+    justify-content: center;
+    font-size: 12px;
+    color: red;
+}
