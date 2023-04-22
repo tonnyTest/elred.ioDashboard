@@ -17,7 +17,8 @@ const UserDetails = ({ userDetails }) => (
           className="rounded-circle"
           src={userDetails.avatar}
           alt={userDetails.name}
-          width="110"
+          width="50"
+          style={{maxWidth: "2rem"}}
         />
       </div>
       <h4 className="mb-0">{userDetails.name}</h4>

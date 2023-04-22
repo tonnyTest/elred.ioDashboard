@@ -23,8 +23,8 @@ export default class Notifications extends React.Component {
     return (
       <>
         <div>
-          <div className="d-flex justify-content-between align-items-center cart-wrapper">
-            <ShoppingCartIcon className="cart-icon"/>
+          <div className="d-flex justify-content-between align-items-center cart-wrapper" style={{ padding: "5px 35px",backgroundColor: "black",borderRadius: "5px",fontSize: "12px"}}>
+            <ShoppingCartIcon className="cart-icon" style={{fontSize: "1rem"}} />
             <p className="mb-0 text-white">checkout (200)</p>   
           </div>
         </div>

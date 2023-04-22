@@ -51,6 +51,7 @@ class MainSidebar extends React.Component {
         className={classes}
         lg={{ size: 2 }}
         md={{ size: 3 }}
+        style={{ background: "transparent", boxShadow: "none"}}
       >
         <SidebarMainNavbar hideLogoText={this.props.hideLogoText} />
         <SidebarSearch />

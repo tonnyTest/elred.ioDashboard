@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PageTitle from "./../components/common/PageTitle";
 import {
   Container,
@@ -28,27 +28,37 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
+import Modal from 'react-bootstrap/Modal';
+
 const BlogOverview = ({ smallStats }) => {
   const [value, setValue] = React.useState("1");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <Container fluid className="main-content-container px-4">
+    <Container fluid className="main-content-container px-4 mt-4">
       {/* Page Header */}
-      <Row noGutters className="page-header py-4">
-        <PageTitle title="About Us" className="text-sm-left mb-3" />
-      </Row>
+      
 
       <Row>
+        
+
         {/* Users Overview */}
         <Col lg="12" md="12" sm="12" className="mb-4">
+        
           {/* <UsersOverview /> */}
 
           <Card small className="h-100">
-            <CardHeader className="" />
+          <Row noGutters className="page-header p-4">
+          <PageTitle title="About Us" className="text-sm-left mb-3" />
+        </Row>
+            {/* <CardHeader className="" /> */}
             <CardBody className="pt-0">
               <Row className=" py-2 align-items-start  ">
                 <Col md="2">
@@ -81,9 +91,9 @@ const BlogOverview = ({ smallStats }) => {
                     <p className="mr-3 mb-0">
                       <a
                         href="#"
-                        className="ml-3 "
+                        className="ml-2 "
                         style={{
-                          color: "blue",
+                          color: "#006cffbd",
                           textDecorationLine: "underline"
                         }}
                       >
@@ -95,12 +105,12 @@ const BlogOverview = ({ smallStats }) => {
               </Row>
 
               <Row>
-                <div className="px-4 d-flex">
+                <div className="px-4 pt-3 d-flex">
                   <p className="mr-2">
                     This is a paragraph. It is editable. Try to change this
                     text.
                   </p>
-                  <EditIcon style={{ color: "red" }} />
+                  <EditIcon onClick={handleShow} style={{ cursor: "pointer",color: "red", weight:"1rem", height: "1rem", marginTop:"2px" }} />
                   <span />
                 </div>
               </Row>
@@ -114,35 +124,37 @@ const BlogOverview = ({ smallStats }) => {
                         width: "100%",
                         borderColor: "divider"
                       }}
+                      // style={{ borderBottom: "none"}}
                     >
                       <TabList
                         onChange={handleChange}
                         aria-label="lab API tabs example"
+                        className="mx-4"
                       >
-                        <Tab label="Info" value="1" />
-                        <Tab label="FAQ" value="2" />
-                        <Tab label="Complaints and feedback" value="3" />
-                        <Tab label="Privacy Policy" value="4" />
-                        <Tab label="Term & Conditions" value="5" />
+                        <Tab label="Info" value="1" style={{ minWidth : "auto"}}/>
+                        <Tab label="FAQ" value="2" style={{ minWidth : "auto"}}/>
+                        <Tab label="Complaints and feedback" value="3" style={{ minWidth : "auto"}}/>
+                        <Tab label="Privacy Policy" value="4" style={{ minWidth : "auto"}}/>
+                        <Tab label="Term & Conditions" value="5" style={{ minWidth : "auto"}}/>
                       </TabList>
                     </Box>
                     <TabPanel value="1">
-                      <div className="info-wrapp">
-                        <div className="info-card p-3">
+                      <div className="info-wrapp" style={{ gap: "18px"}}>
+                        <div className="info-card p-3" style={{ borderRadius: "0.5rem"}}>
                           <div className="d-flex justify-content-between">
                             <div className="d-flex">
                               <span>
-                                <ContactPageIcon />
+                                <ContactPageIcon style={{ color: "#c3c3c3" }}/>
                               </span>
-                              <p className="ml-2">Contact</p>
+                              <p className="ml-2" style={{ fontSize: "21px" }} >Contact</p>
                             </div>
-                            <EditIcon style={{ color: "red" }} />
+                            <EditIcon onClick={handleShow} style={{ cursor: "pointer",color: "red", weight:"1rem", height: "1rem" }} />
                           </div>
 
                           <div className="d-flex justify-content-between">
                             <div className="d-flex">
                               <span>
-                                <EmailIcon />
+                                <EmailIcon style={{ color: "#c3c3c3" }}/>
                               </span>
                               <p
                                 className="ml-2 mb-2"
@@ -157,7 +169,7 @@ const BlogOverview = ({ smallStats }) => {
                           <div className="d-flex justify-content-between">
                             <div className="d-flex">
                               <span>
-                                <PhoneIcon />
+                                <PhoneIcon style={{ color: "#c3c3c3" }}/>
                               </span>
                               <p
                                 className="ml-2 mb-0"
@@ -169,15 +181,15 @@ const BlogOverview = ({ smallStats }) => {
                           </div>
                         </div>
 
-                        <div className="info-card p-3">
+                        <div className="info-card p-3" style={{ borderRadius: "0.5rem"}}>
                           <div className="d-flex justify-content-between">
                             <div className="d-flex">
                               <span>
-                                <LocationOnIcon />
+                                <LocationOnIcon style={{ color: "#c3c3c3" }} />
                               </span>
-                              <p className="ml-2">Address</p>
+                              <p className="ml-2" style={{ fontSize: "21px" }} >Address</p>
                             </div>
-                            <EditIcon style={{ color: "red" }} />
+                            <EditIcon onClick={handleShow} style={{ cursor: "pointer",color: "red", weight:"1rem", height: "1rem" }} />
                           </div>
 
                           <address style={{ fontSize: "13px" }}>
@@ -187,60 +199,60 @@ const BlogOverview = ({ smallStats }) => {
                           </address>
                         </div>
 
-                        <div className="info-card p-3">
+                        <div className="info-card p-3" style={{ borderRadius: "0.5rem"}}>
                           <div className="d-flex justify-content-between">
                             <div className="d-flex">
                               <span>
-                                <HomeIcon />
+                                <HomeIcon style={{ color: "#c3c3c3" }}/>
                               </span>
-                              <p className="ml-2">House of operations</p>
+                              <p className="ml-2" style={{ fontSize: "21px" }}>House of operations</p>
                             </div>
-                            <EditIcon style={{ color: "red" }} />
+                            <EditIcon onClick={handleShow} style={{ cursor: "pointer",color: "red", weight:"1rem", height: "1rem" }} />
                           </div>
-                          <p style={{ fontSize: "13px" }}>
+                          <p style={{ fontSize: "13px" }}>  
                             Monday to Friday - 09:00 AM to 06:00 PM
                           </p>
                         </div>
-                        <div className="info-card p-3">
+                        <div className="info-card p-3" style={{ borderRadius: "0.5rem"}}>
                           <div className="d-flex justify-content-between">
                             <div className="d-flex">
                               <span>
-                                <LinkIcon />
+                                <LinkIcon style={{ color: "#c3c3c3" }}/>
                               </span>
-                              <p className="ml-2">Social Media & Links</p>
+                              <p className="ml-2" style={{ fontSize: "21px" }}>Social Media & Links</p>
                             </div>
-                            <EditIcon style={{ color: "red" }} />
+                            <EditIcon onClick={handleShow} style={{ cursor: "pointer",color: "red", weight:"1rem", height: "1rem" }} />
                           </div>
-                          <div className="d-flex align-items-center gap-10">
-                            <div>
-                              <LanguageIcon /> <br />
-                              <span style={{ fontSize: "10px" }}>Website</span>
+                          <div className="d-flex align-items-center gap-10" style={{ justifyContent: "space-evenly"}}>
+                            <div style={{textAlign: "center"}}>
+                              <LanguageIcon style={{ color: "#c3c3c3" }}/> <br />
+                              <span style={{ fontSize: "10px" }}>Website</span>   
                             </div>
-                            <div>
-                              <InstagramIcon /> <br />
+                            <div style={{textAlign: "center"}}>
+                              <InstagramIcon style={{ color: "#c3c3c3" }}/> <br />
                               <span style={{ fontSize: "10px" }}>
                                 Instagram
                               </span>
                             </div>
-                            <div>
-                              <FacebookRoundedIcon /> <br />
+                            <div style={{textAlign: "center"}}>
+                              <FacebookRoundedIcon style={{ color: "#c3c3c3" }}/> <br />
                               <span style={{ fontSize: "10px" }}>Facebook</span>
                             </div>
-                            <div>
-                              <TwitterIcon /> <br />
+                            <div style={{textAlign: "center"}}>
+                              <TwitterIcon style={{ color: "#c3c3c3" }}/> <br />
                               <span style={{ fontSize: "10px" }}>Twitter</span>
                             </div>
                           </div>
                         </div>
-                        <div className="info-card p-3">
+                        <div className="info-card p-3" style={{ borderRadius: "0.5rem"}}>
                           <div className="d-flex justify-content-between">
                             <div className="d-flex">
                               <span>
                                 <FormatQuoteIcon />
                               </span>
-                              <p className="ml-2">Statement</p>
+                              <p className="ml-2" style={{ fontSize: "21px" }}>Statement</p>
                             </div>
-                            <EditIcon style={{ color: "red" }} />
+                            <EditIcon onClick={handleShow} style={{ cursor: "pointer",color: "red", weight:"1rem", height: "1rem" }} />
                           </div>
                           <div className="d-flex justify-content-between">
                             <p
@@ -265,6 +277,29 @@ const BlogOverview = ({ smallStats }) => {
           </Card>
         </Col>
       </Row>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          I will not close if you click outside me. Don't even try to press
+          escape key.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary">Understood</Button>
+        </Modal.Footer>
+      </Modal>
+
+
     </Container>
   );
 };
